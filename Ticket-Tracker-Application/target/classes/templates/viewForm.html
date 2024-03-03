@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ticket Tracker Application</title>
+	<script src="https://cdn.tiny.cloud/1/6k6ytuo3x11y0tn97lob9zeh0kdku2xewoxns35z09qdhl35/tinymce/6/tinymce.min.js"
+		referrerpolicy="origin"></script>
+
+	<script>
+		tinymce.init({
+
+			selector: '#myTextarea',
+
+			plugins: 'lists bold italic underline lists link image code media table hr wordcount fullscreen',
+
+			toolbar: 'formatselect | undo redo | bold italic underline | bullist numlist | bold italic underline strikethrough | link image media | hr',
+
+			menubar: false,
+
+			branding: false
+
+		});
+
+	</script>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="header">
+		<h1>Ticket Tracker Application <span> <a href="/admin/tickets/">Tickets</a><span><a href="addTicket">New
+						Ticket</a></h1>
+	</div>
+	<br><br>
+	<center>
+		<div class="addTicket">
+
+			<h1 align="center"><b>View TICKET</b></h1>
+			<br><br>
+			<lable>Id</lable>
+			<br><br>
+			<input type="number" readonly name="id" th:value="${tickets.id}">
+			<br><br>
+			<lable>Ticket Bokked Date</lable>
+			<br><br>
+			<input type="date" readonly name="ticketBookedDate" th:value="${tickets.ticketBookedDate}">
+			<br><br>
+			<lable>Title</lable>
+			<br><br>
+			<input type="text" readonly name="ticketTitle" th:value="${tickets.ticketTitle}">
+			<br><br>
+			<label>Short Description</label>
+			<br><br>
+			<input type="text" readonly name="ticketShortDescription" th:value="${tickets.ticketShortDescription}">
+			<br><br>
+			<label>Content</label>
+			<br><br>
+			<textarea id="myTextarea" readonly name="content" th:text="${tickets.content}"></textarea>
+			<br><br>
+		</div>
+
+	</center>
+
+</body>
+
+</html>
